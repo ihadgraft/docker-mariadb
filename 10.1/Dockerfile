@@ -3,9 +3,9 @@ FROM alpine:edge
 RUN apk update \
   && apk add mysql \
   && apk add mysql-client \
+  && apk add pwgen \
+  && apk add expect \
   && rm -rf /var/cache/apk/*
-
-RUN apk add --no-cache expect pwgen
 
 RUN mkdir -p /run/mysqld
 RUN chown mysql:mysql /run/mysqld
